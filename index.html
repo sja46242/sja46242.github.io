@@ -2,18 +2,125 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8">
-  <title>我的 GitHub 网站</title>
+  <title>个人主页 | GitHub Pages</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
-      font-family: Arial, "Microsoft YaHei", sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      font-family: -apple-system, BlinkMacSystemFont,
+        "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+      color: #333;
+    }
+
+    .card {
+      background: #fff;
+      width: 90%;
+      max-width: 420px;
+      padding: 32px;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
       text-align: center;
-      margin-top: 100px;
-      background: #f5f7fa;
+    }
+
+    .avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      margin-bottom: 16px;
+      background: #ddd;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+    }
+
+    h1 {
+      margin: 8px 0;
+    }
+
+    p {
+      line-height: 1.6;
+      margin: 12px 0;
+    }
+
+    .lang-switch {
+      margin-top: 24px;
+    }
+
+    button {
+      border: none;
+      padding: 8px 16px;
+      margin: 0 6px;
+      border-radius: 20px;
+      cursor: pointer;
+      background: #667eea;
+      color: white;
+      font-size: 14px;
+    }
+
+    button:hover {
+      opacity: 0.85;
+    }
+
+    footer {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #888;
     }
   </style>
 </head>
+
 <body>
-  <h1>Hello GitHub Pages!</h1>
-  <p>这是我用 GitHub 建立的网站。</p>
+  <div class="card">
+    <div class="avatar">👋</div>
+
+    <h1 id="name">沈嘉豪</h1>
+
+    <p id="intro">
+      你好！这是我用 GitHub Pages 搭建的个人网站。  
+      我对技术、创作和持续成长充满兴趣。
+    </p>
+
+    <p id="extra">
+      欢迎来到这里，未来我会在此分享项目与想法。
+    </p>
+
+    <div class="lang-switch">
+      <button onclick="setLang('zh')">中文</button>
+      <button onclick="setLang('en')">English</button>
+    </div>
+
+    <footer>
+      © 2025 · Powered by GitHub Pages
+    </footer>
+  </div>
+
+  <script>
+    const content = {
+      zh: {
+        name: "沈嘉豪",
+        intro: "你好！这是我用 GitHub Pages 搭建的个人网站。我对技术、创作和持续成长充满兴趣。",
+        extra: "欢迎来到这里，未来我会在此分享项目与想法。"
+      },
+      en: {
+        name: "Jiahao Shen",
+        intro: "Hi! This is my personal website built with GitHub Pages. I’m interested in technology, creativity, and continuous learning.",
+        extra: "Welcome! I’ll be sharing my projects and thoughts here."
+      }
+    };
+
+    function setLang(lang) {
+      document.getElementById("name").innerText = content[lang].name;
+      document.getElementById("intro").innerText = content[lang].intro;
+      document.getElementById("extra").innerText = content[lang].extra;
+      document.documentElement.lang = lang;
+    }
+  </script>
 </body>
 </html>
